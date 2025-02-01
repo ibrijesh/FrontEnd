@@ -17,19 +17,21 @@ export class ProductCategoryComponent implements OnInit{
   constructor(private productCategorySerivice: ProductCategoryService) {}
 
   ngOnInit(): void {
-   
-   this.productCategorySerivice.GetProductCategory().subscribe({
+  }
 
-    next : (data) => {
-      this.data = data;
-      console.log(this.data);
+  fetchData():any {
+    this.productCategorySerivice.GetProductCategory().subscribe({
+
+      next : (data) => {
+        this.data = data;
+        console.log(this.data);
+        
+      },
+      error: (err) => {
+        this.error = "its error"
+        console.error(err);
+      }
+     })
       
-    },
-    error: (err) => {
-      this.error = "its error"
-      console.error(err);
-    }
-   })
-    
   }
 }

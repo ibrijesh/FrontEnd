@@ -12,9 +12,7 @@ export class ProductCategoryService {
   constructor(private http: HttpClient) { }
 
   GetProductCategory() : Observable<any> {
-
     return this.http.get<any>(this.url);
-
   }
 
 }
